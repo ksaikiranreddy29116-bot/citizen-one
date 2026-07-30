@@ -62,6 +62,8 @@ class UserDocument(Base):
 
     document_type = Column(String(100))
 
+    filename = Column(String(255))
+
     s3_url = Column(Text)
 
     verification_status = Column(Boolean, default=False)
@@ -70,7 +72,10 @@ class UserDocument(Base):
 
     uploaded_at = Column(DateTime, default=datetime.utcnow)
 
-    user = relationship("UserProfile", back_populates="documents")
+    user = relationship(
+        "UserProfile",
+        back_populates="documents"
+    )
 
 
 class GovernmentScheme(Base):
@@ -91,3 +96,31 @@ class GovernmentScheme(Base):
     benefits = Column(Text)
 
     deadline = Column(Date)
+class SchemeApplication(Base):
+    __tablename__ = "scheme_applications"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(Integer, ForeignKey("user_profiles.id"))
+
+    scheme_id = Column(Integer, ForeignKey("government_schemes.id"))
+
+    application_status = Column(String(50), default="Pending")
+
+    applied_at = Column(DateTime, default=datetime.utcnow)
+
+
+class Notification(Base):
+    __tablename__ = "notifications"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(Integer, ForeignKey("user_profiles.id"))
+
+    title = Column(String(200))
+
+    message = Column(Text)
+
+    is_read = Column(Boolean, default=False)
+
+    created_at = Column(DateTime, default=datetime.utcnow)
