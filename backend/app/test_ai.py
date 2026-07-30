@@ -1,4 +1,5 @@
 import json
+import os
 from app.agents.graph_manager import citizen_one_pipeline
 from app.agents.welfare_agents import run_document_autofill_agent
 
@@ -9,15 +10,22 @@ dummy_user = {
     "education": "Undergraduate"
 }
 
-print("⚡ Running CitizenOne Multi-Agent Engine...\n")
+print("⚡ Testing CitizenOne Multi-Agent Engine with Live Vision Extraction...\n")
 
+# 1. Test LangGraph Orchestrator
 result = citizen_one_pipeline.invoke({"user_profile": dummy_user})
 
 print("--- [1] SCHEME RECOMMENDATIONS JSON ---")
 print(json.dumps(result["recommendations"], indent=2))
 
-print("\n--- [2] NOTIFICATIONS JSON ---")
-print(json.dumps(result["notifications"], indent=2))
+# 2. Test Live Gemini Vision Extraction
+sample_img_path = "sample_doc.jpg"
 
-print("\n--- [3] FORM AUTO-FILL JSON ---")
-print(json.dumps(run_document_autofill_agent(), indent=2))
+if os.path.exists(sample_img_path):
+    print(f"\n--- [2] LIVE VISION EXTRACTION FROM {sample_img_path} ---")
+    autofill_res = run_document_autofill_agent(sample_img_path)
+else:
+    print("\n--- [2] FALLBACK AUTO-FILL (No sample_doc.jpg found) ---")
+    autofill_res = run_document_autofill_agent()
+
+print(json.dumps(autofill_res, indent=2))
