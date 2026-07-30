@@ -1,0 +1,38 @@
+[
+  {
+    "agent": "Profile Agent",
+    "status": "completed",
+    "message": "Profile Created",
+    "time": "10:32:01"
+  },
+  {
+    "agent": "Document Agent",
+    "status": "completed",
+    "message": "Documents Verified",
+    "time": "10:32:03"
+  },
+  {
+    "agent": "Extraction Agent",
+    "status": "completed",
+    "message": "Extracted Citizen Details",
+    "time": "10:32:05"
+  },
+  {
+    "agent": "Eligibility Agent",
+    "status": "completed",
+    "message": "Checked 156 Schemes",
+    "time": "10:32:08"
+  },
+  {
+    "agent": "Recommendation Agent",
+    "status": "completed",
+    "message": "Ranked Top 5 Schemes",
+    "time": "10:32:10"
+  },
+  {
+    "agent": "Application Agent",
+    "status": "completed",
+    "message": "Generated Application Draft",
+    "time": "10:32:12"
+  }
+]

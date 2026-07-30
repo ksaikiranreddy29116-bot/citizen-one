@@ -1,0 +1,35 @@
+[
+  {
+    "scheme_id": "PM001",
+    "scheme_name": "PM Kisan",
+    "category": "Agriculture",
+    "match_score": 0.98,
+    "matching_criteria": [
+      "Annual income below ₹3,00,000",
+      "Farmer category",
+      "Resident of Andhra Pradesh"
+    ],
+    "documents_utilized": [
+      "Income Certificate",
+      "Aadhaar Card"
+    ],
+    "missing_requirements": [
+      "Bank Passbook"
+    ]
+  },
+  {
+    "scheme_id": "SCH002",
+    "scheme_name": "National Scholarship",
+    "category": "Education",
+    "match_score": 0.94,
+    "matching_criteria": [
+      "Undergraduate student",
+      "Income below scholarship limit"
+    ],
+    "documents_utilized": [
+      "Student ID",
+      "Income Certificate"
+    ],
+    "missing_requirements": []
+  }
+]
