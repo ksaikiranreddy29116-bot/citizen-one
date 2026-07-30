@@ -19,7 +19,7 @@ print("--- [1] SCHEME RECOMMENDATIONS JSON ---")
 print(json.dumps(result["recommendations"], indent=2))
 
 # 2. Test Live Gemini Vision Extraction
-sample_img_path = "sample_doc.jpg"
+sample_img_path = "sample_doc.jpeg"
 
 if os.path.exists(sample_img_path):
     print(f"\n--- [2] LIVE VISION EXTRACTION FROM {sample_img_path} ---")

@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pydantic
+langgraph
+langchain
+google-genai
+boto3
+sqlalchemy
+psycopg2-binary
+pandas
+python-multipart
+python-dotenv
+openai
