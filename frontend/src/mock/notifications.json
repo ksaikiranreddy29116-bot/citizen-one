@@ -1,0 +1,33 @@
+{
+  "applicationId": "PMK-2026-00124",
+  "scheme": "PM Kisan",
+  "estimatedTime": "3-5 Days",
+
+  "timeline": [
+    {
+      "title": "Application Submitted",
+      "status": "completed",
+      "time": "30 Jul 2026, 10:30 AM"
+    },
+    {
+      "title": "Documents Verified",
+      "status": "completed",
+      "time": "30 Jul 2026, 10:32 AM"
+    },
+    {
+      "title": "Eligibility Confirmed",
+      "status": "completed",
+      "time": "30 Jul 2026, 10:35 AM"
+    },
+    {
+      "title": "Under Government Review",
+      "status": "processing",
+      "time": "Expected Today"
+    },
+    {
+      "title": "Benefits Approved",
+      "status": "pending",
+      "time": "-"
+    }
+  ]
+}
