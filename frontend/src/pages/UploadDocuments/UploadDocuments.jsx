@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
 import DocumentUploadCard from "../../components/upload/DocumentUploadCard";
 import { documentTypes } from "../../constants/documentTypes";
+import { extractDocument } from "../../api/ai";
 
 function UploadDocuments() {
   const [documents, setDocuments] = useState({
@@ -20,12 +21,44 @@ function UploadDocuments() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
   e.preventDefault();
 
-  console.log("Uploaded Documents:", documents);
+  try {
+    const uploadedResponses = {};
 
-  navigate("/processing");
+    for (const [key, file] of Object.entries(documents)) {
+      if (!file) continue;
+
+      console.log(`Uploading ${key}...`);
+
+      const response = await extractDocument(file);
+
+      uploadedResponses[key] = response;
+    }
+
+    console.log("All Responses:", uploadedResponses);
+
+    localStorage.setItem(
+      "citizenResponses",
+      JSON.stringify(uploadedResponses)
+    );
+
+    navigate("/processing");
+  } catch (error) {
+  console.error("FULL ERROR:", error);
+
+  if (error.response) {
+    console.log("Status:", error.response.status);
+    console.log("Response:", error.response.data);
+  } else if (error.request) {
+    console.log("Request:", error.request);
+  } else {
+    console.log("Message:", error.message);
+  }
+
+  alert(error.message);
+}
 };
 
   return (
